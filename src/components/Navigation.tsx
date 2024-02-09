@@ -4,6 +4,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 import { Home } from '../screens/Home'
 import Quotes from '../screens/Quotes'
+import { StatusBar } from 'expo-status-bar'
 
 const Tab = createBottomTabNavigator()
 
