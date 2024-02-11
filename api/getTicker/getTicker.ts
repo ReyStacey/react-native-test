@@ -1,7 +1,7 @@
 import axios from 'axios'
 const BASE_URL = 'https://api.poloniex.com/markets/ticker24h'
 
-export type tickerData = {
+export interface TickerData {
   displayName: string
   markPrice: string
   high: string
@@ -9,5 +9,5 @@ export type tickerData = {
 }
 
 export const getTickerData = async () => {
-  return (await axios.get<tickerData[]>(BASE_URL)).data
+  return (await axios.get<TickerData[]>(BASE_URL)).data
 }

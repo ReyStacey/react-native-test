@@ -1,9 +1,9 @@
 import { View, Text, StyleSheet } from 'react-native'
-import { tickerData } from '../../../api/getTicker'
+import { TickerData } from '../../../api/getTicker'
 import { observer } from 'mobx-react-lite'
 
 interface TableItemProps {
-  item: tickerData
+  item: TickerData
 }
 
 export const TableItem = observer((props: TableItemProps) => {

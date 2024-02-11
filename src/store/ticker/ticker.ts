@@ -1,8 +1,8 @@
 import { makeObservable, runInAction, action, observable } from 'mobx'
-import { tickerData, getTickerData } from '../../api/getTicker'
+import { TickerData, getTickerData } from '../../../api/getTicker'
 
 class TickerStore {
-  @observable public tickerData: tickerData[] = []
+  @observable public tickerData: TickerData[] = []
 
   @observable public error: string | null = null
 

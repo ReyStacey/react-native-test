@@ -1,11 +1,11 @@
 import { View, Text, StyleSheet, ScrollView } from 'react-native'
 import { TableItem } from '../TableItem'
-import { tickerData } from '../../../api/getTicker'
+import { TickerData } from '../../../api/getTicker'
 import { observer } from 'mobx-react-lite'
 
 interface TableProps {
   error: string
-  data: tickerData[]
+  data: TickerData[]
 }
 
 const CELL_NAMES: string[] = ['displayName', 'markPrice', 'high', 'dailyChange']

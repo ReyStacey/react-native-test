@@ -11,23 +11,18 @@ export const Quotes = observer(() => {
   useFocusEffect(
     React.useCallback(() => {
       const interval = setInterval(actionGetTickerData, 5000)
+
       return () => clearInterval(interval)
     }, []),
   )
 
-  const filteredTickerData = tickerData.map((item) => {
-    const { displayName, markPrice, high, dailyChange } = item
-
-    return { displayName, markPrice, high, dailyChange }
-  })
-
-  if (filteredTickerData.length) {
-    return <Table data={filteredTickerData} error={error} />
+  if (tickerData.length) {
+    return <Table data={tickerData} error={error} />
   }
 
   return (
     <View style={styles.container}>
-      <ActivityIndicator size="large" color="#d85a85" />
+      <ActivityIndicator size="large" />
     </View>
   )
 })

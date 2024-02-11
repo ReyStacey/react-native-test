@@ -7,22 +7,23 @@ import { Quotes } from '../../screens/Quotes'
 
 const Tab = createBottomTabNavigator()
 
-export const Navigation = () => {
-  const tabsTitle: string[] = ['О приложении', 'Котировки']
+const TABS: string[] = ['О приложении', 'Котировки']
+const THEME: string = '#d85a85'
 
+export const Navigation = () => {
   return (
     <NavigationContainer>
       <Tab.Navigator
         screenOptions={{
-          tabBarActiveTintColor: '#d85a85',
+          tabBarActiveTintColor: THEME,
         }}
       >
         <Tab.Screen
           name="Home"
           component={Home}
           options={{
-            title: tabsTitle[0],
-            tabBarLabel: tabsTitle[0],
+            title: TABS[0],
+            tabBarLabel: TABS[0],
             tabBarIcon: ({ color, size }) => (
               <MaterialCommunityIcons
                 name="information"
@@ -36,8 +37,8 @@ export const Navigation = () => {
           name="Quotes"
           component={Quotes}
           options={{
-            title: tabsTitle[1],
-            tabBarLabel: tabsTitle[1],
+            title: TABS[1],
+            tabBarLabel: TABS[1],
             tabBarIcon: ({ color, size }) => (
               <MaterialCommunityIcons
                 name="currency-usd"
