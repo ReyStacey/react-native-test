@@ -1,10 +1,39 @@
 import React from 'react'
-import { SafeAreaView, Text, StyleSheet } from 'react-native'
+import { SafeAreaView, Text, StyleSheet, Image, View } from 'react-native'
+
+interface AboutApp {
+  uri: string
+  title: string
+  description: {
+    about: string
+    technology: string
+  }
+}
+
+const ABOUT_APP: AboutApp = {
+  uri: 'https://v3.polo-static.com/spot-web/static/img/01.light.25285b47.png',
+  title: 'MarkersTicker',
+  description: {
+    about:
+      'MarketsTicker - это мобильное приложение, предназначенное для отслеживания актуальных данных о криптовалютах. Приложение обеспечивает пользователя удобным способом мониторить изменения цен, объемов торгов и других ключевых показателей для различных криптовалют.',
+    technology:
+      'Разработано с использованием React Native для создания кросс-платформенного мобильного интерфейса. Использует MobX для эффективного управления состоянием данных. TypeScript обеспечивает статическую типизацию, повышая безопасность кода и облегчая его понимание.',
+  },
+}
 
 export const Home = () => {
   return (
     <SafeAreaView style={styles.container}>
-      <Text> О приложении </Text>
+      <Image source={{ uri: ABOUT_APP.uri }} style={styles.image} />
+      <View style={styles.wrapper}>
+        <Text style={styles.title}>{ABOUT_APP.title}</Text>
+        <View style={styles.block}>
+          <Text style={styles.description}>{ABOUT_APP.description.about}</Text>
+          <Text style={styles.description}>
+            {ABOUT_APP.description.technology}
+          </Text>
+        </View>
+      </View>
     </SafeAreaView>
   )
 }
@@ -13,6 +42,34 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
-    justifyContent: 'center',
+  },
+  image: {
+    width: '100%',
+    height: 200,
+    backgroundColor: '#d85a85',
+  },
+  wrapper: {
+    marginTop: 40,
+    marginHorizontal: 10,
+    padding: 20,
+    borderRadius: 20,
+    backgroundColor: 'white',
+  },
+  title: {
+    fontWeight: 'bold',
+    fontSize: 24,
+    lineHeight: 32,
+    marginBottom: 10,
+    color: '#d85a85',
+    textAlign: 'center',
+  },
+  block: {
+    margin: -5,
+  },
+  description: {
+    fontSize: 18,
+    lineHeight: 24,
+    color: '#727272',
+    padding: 5,
   },
 })

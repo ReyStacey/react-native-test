@@ -12,7 +12,11 @@ export const Navigation = () => {
 
   return (
     <NavigationContainer>
-      <Tab.Navigator>
+      <Tab.Navigator
+        screenOptions={{
+          tabBarActiveTintColor: '#d85a85',
+        }}
+      >
         <Tab.Screen
           name="Home"
           component={Home}

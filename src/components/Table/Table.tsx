@@ -44,6 +44,9 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     alignItems: 'center',
     justifyContent: 'center',
+    color: '#d85a85',
+    fontSize: 16,
+    fontWeight: 'bold',
   },
   error: {
     color: 'red',

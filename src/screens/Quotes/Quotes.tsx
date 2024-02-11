@@ -27,7 +27,7 @@ export const Quotes = observer(() => {
 
   return (
     <View style={styles.container}>
-      <ActivityIndicator size="large" />
+      <ActivityIndicator size="large" color="#d85a85" />
     </View>
   )
 })
