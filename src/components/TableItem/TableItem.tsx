@@ -1,7 +1,12 @@
 import { View, Text, StyleSheet } from 'react-native'
-import { tickerData } from '../../api/getTicker'
+import { tickerData } from '../../../api/getTicker'
+import { observer } from 'mobx-react-lite'
 
-export const TableItem = (props: { item: tickerData }) => {
+interface TableItemProps {
+  item: tickerData
+}
+
+export const TableItem = observer((props: TableItemProps) => {
   const { displayName, markPrice, high, dailyChange } = props.item
 
   return (
@@ -12,7 +17,7 @@ export const TableItem = (props: { item: tickerData }) => {
       <Text style={styles.cell}>{dailyChange}</Text>
     </View>
   )
-}
+})
 
 const styles = StyleSheet.create({
   row: {

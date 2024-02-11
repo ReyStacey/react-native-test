@@ -1,29 +1,25 @@
 import { View, Text, StyleSheet, ScrollView } from 'react-native'
-import { TableItem } from './TableItem'
-import { tickerData } from '../../api/getTicker'
+import { TableItem } from '../TableItem'
+import { tickerData } from '../../../api/getTicker'
+import { observer } from 'mobx-react-lite'
 
-type tableProps = {
+interface TableProps {
   error: string
   data: tickerData[]
 }
 
-export const Table = (props: tableProps) => {
-  const cellNames: string[] = [
-    'displayName',
-    'markPrice',
-    'high',
-    'dailyChange',
-  ]
+const CELL_NAMES: string[] = ['displayName', 'markPrice', 'high', 'dailyChange']
 
+export const Table = observer((props: TableProps) => {
   return (
     <View>
-      {props.error ? (
+      {!!props.error ?? (
         <View style={styles.row}>
           <Text style={[styles.cell, styles.error]}>{props.error}</Text>
         </View>
-      ) : null}
+      )}
       <View style={styles.row}>
-        {cellNames.map((item, index) => (
+        {CELL_NAMES.map((item, index) => (
           <Text style={styles.cell} key={index + item}>
             {item}
           </Text>
@@ -36,7 +32,7 @@ export const Table = (props: tableProps) => {
       </ScrollView>
     </View>
   )
-}
+})
 
 const styles = StyleSheet.create({
   row: {

@@ -1,34 +1,36 @@
-import { makeAutoObservable, runInAction } from 'mobx'
+import { makeObservable, runInAction, action, observable } from 'mobx'
 import { tickerData, getTickerData } from '../../api/getTicker'
 
-class tickerStore {
-  tickerData: tickerData[] = []
-  isLoading = false
-  error = null
+class TickerStore {
+  @observable public tickerData: tickerData[] = []
+
+  @observable public error: string | null = null
 
   constructor() {
-    makeAutoObservable(this)
+    makeObservable(this)
   }
 
-  actionGetTickerData = async () => {
+  @action
+  public actionGetTickerData = async () => {
+    let isLoading = true
+
     try {
-      this.isLoading = true
       const response = await getTickerData()
 
       runInAction(() => {
         this.tickerData = response
-        this.isLoading = false
         this.error = null
+        isLoading = false
       })
     } catch (error) {
-      console.error = error.message
+      console.error(error.message)
+
       runInAction(() => {
-        this.isLoading = false
         this.error = 'Ошибка'
+        isLoading = false
       })
     }
   }
 }
 
-const ticker = new tickerStore()
-export default ticker
+export const tickerStore = new TickerStore()
