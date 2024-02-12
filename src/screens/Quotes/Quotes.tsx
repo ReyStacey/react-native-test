@@ -1,4 +1,4 @@
-import React from 'react'
+import * as React from 'react'
 import { View, StyleSheet, ActivityIndicator } from 'react-native'
 import { Table } from '../../components/Table'
 import { tickerStore } from '../../store/ticker'

@@ -1,5 +1,6 @@
-import React from 'react'
+import * as React from 'react'
 import { SafeAreaView, Text, StyleSheet, Image, View } from 'react-native'
+import { THEME } from '../../store/theme'
 
 interface AboutApp {
   uri: string
@@ -46,21 +47,21 @@ const styles = StyleSheet.create({
   image: {
     width: '100%',
     height: 200,
-    backgroundColor: '#d85a85',
+    backgroundColor: THEME.primaryColor,
   },
   wrapper: {
     marginTop: 40,
     marginHorizontal: 10,
     padding: 20,
     borderRadius: 20,
-    backgroundColor: 'white',
+    backgroundColor: THEME.snowColor,
   },
   title: {
     fontWeight: 'bold',
     fontSize: 24,
     lineHeight: 32,
     marginBottom: 10,
-    color: '#d85a85',
+    color: THEME.primaryColor,
     textAlign: 'center',
   },
   block: {
@@ -69,7 +70,7 @@ const styles = StyleSheet.create({
   description: {
     fontSize: 18,
     lineHeight: 24,
-    color: '#727272',
+    color: THEME.secondaryColor,
     padding: 5,
   },
 })

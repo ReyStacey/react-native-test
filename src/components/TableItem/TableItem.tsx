@@ -1,3 +1,4 @@
+import * as React from 'react'
 import { View, Text, StyleSheet } from 'react-native'
 import { TickerData } from '../../../api/getTicker'
 import { observer } from 'mobx-react-lite'

@@ -1,21 +1,27 @@
-import React from 'react'
+import * as React from 'react'
 import { NavigationContainer } from '@react-navigation/native'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons'
 import { Home } from '../../screens/Home'
 import { Quotes } from '../../screens/Quotes'
+import { THEME } from '../../store/theme'
 
 const Tab = createBottomTabNavigator()
 
 const TABS: string[] = ['О приложении', 'Котировки']
-const THEME: string = '#d85a85'
 
 export const Navigation = () => {
   return (
     <NavigationContainer>
       <Tab.Navigator
         screenOptions={{
-          tabBarActiveTintColor: THEME,
+          headerStyle: {
+            backgroundColor: THEME.snowColor,
+          },
+          tabBarActiveTintColor: THEME.primaryColor,
+          tabBarStyle: {
+            backgroundColor: THEME.snowColor,
+          },
         }}
       >
         <Tab.Screen

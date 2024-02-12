@@ -18,7 +18,7 @@ class TickerStore {
       const response = await getTickerData()
 
       runInAction(() => {
-        this.tickerData = response
+        this.tickerData = response as TickerData[]
         this.error = null
         isLoading = false
       })

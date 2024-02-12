@@ -1,7 +1,9 @@
+import * as React from 'react'
 import { View, Text, StyleSheet, ScrollView } from 'react-native'
 import { TableItem } from '../TableItem'
 import { TickerData } from '../../../api/getTicker'
 import { observer } from 'mobx-react-lite'
+import { THEME } from '../../store/theme'
 
 interface TableProps {
   error: string
@@ -44,11 +46,11 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    color: '#d85a85',
+    color: THEME.primaryColor,
     fontSize: 16,
     fontWeight: 'bold',
   },
   error: {
-    color: 'red',
+    color: THEME.errorColor,
   },
 })
